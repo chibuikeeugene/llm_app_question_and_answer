@@ -1,0 +1,3 @@
+/.venv
+/llm_qa_env
+/poetry.lock

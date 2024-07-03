@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "llm-app-question-and-answer"
+version = "0.1.0"
+description = "a basic llm application for question and answer activity"
+authors = ["chibuikeeugene <chibuikeeugene@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.36.0"
+langchain = "^0.2.6"
+openai = "^1.35.9"
+huggingface-hub = "^0.23.4"
+python-dotenv = "^1.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
