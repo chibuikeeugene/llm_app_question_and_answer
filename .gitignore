@@ -1,3 +1,5 @@
 /.venv
 /llm_qa_env
-/poetry.lock
+*poetry.lock
+*.env
+/meta-llama
