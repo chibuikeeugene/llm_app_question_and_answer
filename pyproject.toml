@@ -17,6 +17,7 @@ langchain-ollama = "^0.1.0"
 beautifulsoup4 = "^4.12.3"
 faiss-cpu = "^1.8.0.post1"
 sphinx = "^8.0.2"
+loguru = "^0.7.2"
 
 
 [tool.poetry.group.dev.dependencies]
