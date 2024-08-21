@@ -10,8 +10,6 @@ from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from document_loader import web_document_loader
-
 
 def load_model(model_name:str):
     """ load the specific llm model"""
@@ -23,18 +21,22 @@ def load_model(model_name:str):
     return llm
 
 
-def generate_embeddings(model_name:str,):
+def generate_embeddings(model_name:str, loaded_document):
     """ generate content embeddings and save it in a FAISS vectorstore (in-memeory)"""
     # Indexing our docs into a vectorstore
     # first create our embedding object
-    docs =  web_document_loader
+    docs =  loaded_document
 
     embeddings  = OllamaEmbeddings(model=model_name)
 
     # Building our index
     # instantiate our text splitter
     text_splitter = RecursiveCharacterTextSplitter()
+
+    logger.info('performing recursive document splitting')
     documents = text_splitter.split_documents(docs)
+
+    logger.info('performing content embedding from the document')
     vector = FAISS.from_documents(documents, embeddings)
 
     # return our vectorstore with the embedded contents
