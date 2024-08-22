@@ -3,3 +3,4 @@
 *poetry.lock
 *.env
 /meta-llama
+/__pycache__/
