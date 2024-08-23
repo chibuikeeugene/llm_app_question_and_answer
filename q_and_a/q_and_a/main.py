@@ -4,13 +4,17 @@ import llm_model
 import chat_prompt_template
 from loguru import logger
 
+from langchain_core.messages import AIMessage, HumanMessage
+
 from dotenv import load_dotenv
 load_dotenv()
 
 from document_loader import web_document_loader
 
+# define global variables
+chat_history:list = []
 
-def langsmith_app(site_link, prompt):
+def langsmith_app(prompt:str, site_link):
 
     # retrieve url of any website
     # site_link =  input("Enter the URL of the website you want to index: ")
@@ -29,12 +33,17 @@ def langsmith_app(site_link, prompt):
 
     # call the chat prompt template module
     logger.info('creating the retrieval chain')
-    retrieval_chain = chat_prompt_template.prompt_template(
+    retrieval_chain_with_history = chat_prompt_template.prompt_template(
         llm_model=llm,
         vector_object=vector
     )
     logger.info('Response is being retrieved!')
-    response =  retrieval_chain.invoke({"input": prompt})
+    response =  retrieval_chain_with_history.invoke(
+        {
+            "chat_history": chat_history,
+            "input": prompt
+        }
+        )
     return response['answer']
 
 
@@ -44,12 +53,28 @@ if __name__ == "__main__":
     st.header("LangChain Application")
 
     input=st.text_input("Enter the URL of the website you want to index: ", key="input")
+    
     question = st.text_input("Ask a question about the website: ")
+
+    # display the website in focus to the user
+    st.subheader(f"{input}")
+
     submit=st.button("Enter")
 
     if submit:
-        response = langsmith_app(site_link=input, prompt=question)
+        response = langsmith_app(prompt=question, site_link=input)
         st.subheader("The Response is")
         st.write(response)
+        chat_history = [
+            HumanMessage(
+                content= f"{question}"
+            ), 
+            AIMessage(
+                content= f"{response}"
+            )
+        ]
+            
+            
+
     
 
