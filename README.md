@@ -7,7 +7,7 @@ A large language model that takes any website as an input together with a user q
 1. python = "^3.10"
 2. streamlit = "^1.36.0"
 3. langchain = "^0.2.6"
-4. llama3
+4. llama 3
 5. huggingface-hub = "^0.23.4"
 6. python-dotenv = "^1.0.1"
 7. langchain-community = "^0.2.6"
@@ -20,4 +20,6 @@ A large language model that takes any website as an input together with a user q
 
 ## Snapshots
 
-![Q&A app schema](<Screenshot 2024-06-22 at 4.15.49 am.png>)
+![Q&A app schema](<LangSmith Question & Answer.drawio.png>)
+![Streamlit app 1](<Screenshot 2024-08-23 at 11.49.52 pm.png>)
+![Streamlit app 2](<Screenshot 2024-08-23 at 11.49.59 pm.png>)
