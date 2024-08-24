@@ -20,6 +20,12 @@ A large language model that takes any website as an input together with a user q
 
 ## Snapshots
 
+### Q&A architecture
+
 ![Q&A app schema](<LangSmith Question & Answer.drawio.png>)
+
+### Live view of our application in workmode with Streamlit as the frontend
+
 ![Streamlit app 1](<Screenshot 2024-08-23 at 11.49.52 pm.png>)
+
 ![Streamlit app 2](<Screenshot 2024-08-23 at 11.49.59 pm.png>)
