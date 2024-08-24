@@ -18,6 +18,13 @@ A large language model that takes any website as an input together with a user q
 12. loguru = "^0.7.2"
 13. fire = "^0.6.0"
 
+## To run the application
+
+1. install llama3 and run server locally - using the command -  ollama run llama3
+2. Install the package dependencies using poetry install command. Ensure you do this in a virual environment.
+3. navigate to the q_and_a sub-folder and run the command -  streamlit run main.py
+4. Good luck !
+
 ## Snapshots
 
 ### Q&A architecture
