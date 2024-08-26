@@ -19,6 +19,7 @@ faiss-cpu = "^1.8.0.post1"
 sphinx = "^8.0.2"
 loguru = "^0.7.2"
 fire = "^0.6.0"
+joblib = "^1.4.2"
 
 
 [tool.poetry.group.dev.dependencies]

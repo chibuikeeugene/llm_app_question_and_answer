@@ -4,3 +4,4 @@
 *.env
 /meta-llama
 /__pycache__/
+.DS_Store
