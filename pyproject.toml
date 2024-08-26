@@ -20,6 +20,7 @@ sphinx = "^8.0.2"
 loguru = "^0.7.2"
 fire = "^0.6.0"
 joblib = "^1.4.2"
+langchainhub = "^0.1.21"
 
 
 [tool.poetry.group.dev.dependencies]
