@@ -102,25 +102,7 @@ if __name__ == "__main__":
             response = langsmith_app(prompt=question, site_link=input,)
             st.subheader("The Response is")
             st.write(response)
-        # previous_question =  question
-
-    # # if user enters only a query prompt
-    # if question:
-    #     if submit:
-    #         vector_obj = joblib.load(f"{faiss_vectorstore_dir}/vectorstore.pkl")
-    #         context = "Site related queries."
-    #         chats_history = [
-    #             HumanMessage(
-    #                 content= f"{previous_question}"
-    #             ),
-    #         ]
-    #         new_response = langsmith_app_with_chat_history(
-    #             prompt=question,  
-    #             chat_history=chats_history, 
-    #             vector_object= vector_obj,
-    #             contexts= context)
-    #         st.subheader("The Response is")
-    #         st.write(new_response)
+    
         
             
 
