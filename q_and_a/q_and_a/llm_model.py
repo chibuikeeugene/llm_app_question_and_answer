@@ -31,7 +31,9 @@ def generate_embeddings(model_name:str, loaded_document):
 
     # Building our index
     # instantiate our text splitter
-    text_splitter = RecursiveCharacterTextSplitter()
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000, chunk_overlap=200, add_start_index=True
+    )
 
     logger.info('performing recursive document splitting')
     documents = text_splitter.split_documents(docs)
