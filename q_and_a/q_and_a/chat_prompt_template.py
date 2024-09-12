@@ -11,15 +11,20 @@ from langchain_core.prompts import MessagesPlaceholder
 
 from langchain.chains import create_retrieval_chain
 
+template = """Use the following pieces of context to answer the question at the end.
+If you don't know the answer, just say that you don't know, don't try to make up an answer.
+Use three sentences maximum and keep the answer as concise as possible.
+Always say "thanks for asking!" at the end of the answer.
+
+{context}
+
+Question: {input}
+
+Helpful Answer:"""
+
 def retrieval_chain(llm_model, vector_object):
     """ customize the template prompt and retriever chain"""
-    prompt = ChatPromptTemplate.from_template(
-        """Answer the following question based only on the provided context, assuming the role of a customer support engineer:
-            <context>
-            {context}
-            </context>                     
-            Question: {input}"""
-)
+    prompt = ChatPromptTemplate.from_template(template)
 
     # create a document chain that holds user input prompt and the model
     document_chain = create_stuff_documents_chain(prompt=prompt, llm=llm_model)
